@@ -60,6 +60,7 @@ def main():
         res += "\n"
 
     with open(OUTPUT_ASM, "w") as f:
+        f.write(f"; {' '.join(sys.argv)}\n\n")
         f.write(res)
 
 if __name__ == "__main__":
