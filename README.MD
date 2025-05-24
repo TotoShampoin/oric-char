@@ -1,0 +1,54 @@
+# Oric Char
+
+A script to convert spritesheet images into Oric characters, in assembly.
+
+## Features
+
+- Converts monochrome spritesheet images into Oric-compatible character data.
+- Outputs data in assembly format (`.db` statements).
+- Supports configurable character width and height.
+
+## Requirements
+
+- Python 3.8+
+- [Pillow](https://pypi.org/project/Pillow/)
+- [NumPy](https://pypi.org/project/numpy/)
+
+Install dependencies with:
+
+```
+pip install -r requirements.txt
+```
+
+## Usage
+
+```
+python oric-char.py input_image.png output.s [-W WIDTH] [-H HEIGHT]
+```
+
+- `input_image.png`: Input monochrome image file (e.g., PNG).
+- `output.s`: Output assembly file.
+- `-W WIDTH`: Character width in byte columns (default: 1).
+- `-H HEIGHT`: Character height in pixel rows (default: 8).
+
+### Example
+
+```
+python oric-char.py example.png chars.s -W 2 -H 8
+```
+
+This will convert `example.png` into Oric character data, with each character being 2 bytes wide and 8 pixels high, and write the result to `chars.s`.
+
+## Output Format
+
+The output file contains `.db` statements for each character, with binary values and a visual ASCII representation as comments.
+
+## Notes
+
+- The input image should be monochrome (black=1 and white=0).
+- Each character is extracted from the image grid according to the specified width and height.
+
+## License
+
+MIT License.
+
